@@ -1,12 +1,14 @@
 {
   "display": "Configuration for Graphics Programming in PAI",
   "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "target": "es2022",
-    "module": "commonjs",
+    "module": "ES6",
     "allowJs": true,
     "rootDir": "./",
-    "outDir": "./",
-    "declaration": false,                     /* Generate (or not) .d.ts files for every TypeScript file inside your project */
+    "outDir": "./src/dist",
     "declaration": true,
     "alwaysStrict": true,                     /* Parse in strict mode and emit "use strict" for each source file */
     "strict": true,                           /* Enable all strict type-checking options */
@@ -15,13 +17,19 @@
     "noFallthroughCasesInSwitch": true,       /* Report errors for fallthrough cases in switch statement */
     "noImplicitReturns": true,                /* Report error when not all code paths in function return a value */
     "noUnusedLocals": true,                   /* Report errors on unused local variables */
-    "forceConsistentCasingInFileNames": true  /* Force all file names to have the same case style */
+    "forceConsistentCasingInFileNames": true, /* Force all file names to have the same case style */
+    "sourceMap": true,
   },
   "exclude": [
+        "./**/dist",
+        "docs",
         "node_modules",
         "build",
         "lib",
         "test",
-        "public"
+        "public", 
+        "dist",
+        "./**/*.test.ts",
+        "babel.config.cjs",
   ]
 }
