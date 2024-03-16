@@ -31,19 +31,19 @@ export class GridDrawer extends CanvasBase implements EntityDrawable {
     this.context.save();
     this.context.setLineDash([10, 2]);
     this.context.strokeStyle = 'grey';
-    this.drawColumns(this.numberOfColumns);
-    this.drawRows(this.numberOfRows);
+    this.drawColumns();
+    this.drawRows();
     this.context.restore();
   }
   /**
    * Draws columns on the canvas.
    * @param numberOfColumns - The number of columns to draw.
    */
-  private drawColumns(numberOfColumns: number): void {
-    const COLUMN_LENGTH = this.canvas.width / numberOfColumns;
-    let coordinateXOfColumn = COLUMN_LENGTH;
+  private drawColumns(): void {
+    const COLUMN_LENGTH: number = this.canvas.width / this.numberOfColumns;
+    let coordinateXOfColumn: number = COLUMN_LENGTH;
     this.context?.beginPath();
-    for (let i = 0; i < numberOfColumns - 1; i++) {
+    for (let i = 0; i < this.numberOfColumns - 1; i++) {
       this.context?.moveTo(coordinateXOfColumn, 0);
       this.context?.lineTo(coordinateXOfColumn, this.context.canvas.height);
       this.context?.stroke();
@@ -55,11 +55,11 @@ export class GridDrawer extends CanvasBase implements EntityDrawable {
    * Draws rows on the canvas.
    * @param numberOfRows - The number of rows to draw.
    */
-  private drawRows(numberOfRows: number): void {
-    const ROW_LENGTH = this.canvas.height / numberOfRows;
-    let coordinateYOfRow = ROW_LENGTH;
+  private drawRows(): void {
+    const ROW_LENGTH: number = this.canvas.height / this.numberOfRows;
+    let coordinateYOfRow: number = ROW_LENGTH;
     this.context?.beginPath();
-    for (let i = 0; i < numberOfRows - 1; i++) {
+    for (let i = 0; i < this.numberOfRows - 1; i++) {
       this.context?.moveTo(0, coordinateYOfRow);
       this.context?.lineTo(this.context.canvas.width, coordinateYOfRow);
       this.context?.stroke();
